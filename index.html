@@ -1,0 +1,1029 @@
+<html>
+    
+<head>
+
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="main.js"></script>
+
+
+</head>
+
+    
+<body>
+    
+<div class="section">
+
+<div class="content-container">
+
+<br />  
+<center>
+    
+<h2><b>Chapter XIV<br /></b></h2>
+
+<br />
+
+<br />
+<h1><b>Financial Benchmarking<br/>Using Self-Organizing<br/>
+Maps – Studying the<br/>
+International Pulp and<br/>Paper Industry
+<br/></b></h1>
+    <br />
+    </center>
+<h7>Tomas Eklund <br>Turku Centre for Computer Science, Finland</h7>
+<h7>Barbro Back<br>Åbo Akademi University, Finland</h7>
+ <h7>Hannu Vanharanta<br>Pori School of Technology and Economics, Finland</h7>
+<h7>Ari Visa<br>Tampere University of Technology, Finland</h7> 
+<center>
+    <h4><b>ABSTRACT</b></h4>
+    </center>  
+<p><i>Performing financial benchmarks in today’s information-rich society can be a daunting
+task. With the evolution of the Internet, access to massive amounts of financial data,
+typically in the form of financial statements, is widespread. Managers and stakeholders
+are in need of a tool that allows them to quickly and accurately analyze these data. An
+emerging technique that may be suited for this application is the self-organizing map.
+The purpose of this study was to evaluate the performance of self-organizing maps for
+the purpose of financial benchmarking of international pulp and paper companies. For</i></p>
+<p style="text-align: right;">pg.no:01</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">
+<p><i>the study, financial data in the form of seven financial ratios were collected, using the
+Internet as the primary source of information. A total of 77 companies and six regional
+averages were included in the study. The time frame of the study was the period 1995-
+2000. A number of benchmarks were performed, and the results were analyzed based
+on information contained in the annual reports. The results of the study indicate that
+self-organizing maps can be feasible tools for the financial benchmarking of large
+amounts of financial data.</i></p> 
+<center>
+    <h4>INTRODUCTION</h4>
+    </center>   
+<p>There are many parties interested in the financial performance of a company.
+Investors want to find promising investments among the thousands of stocks available
+on the market today. Managers want to be able to compare the performance of their
+company to that of others in order to isolate areas in which the company could improve.
+Creditors want to analyze the company’s long-term payment ability, and auditors want
+to assess the accuracy of a company’s financial statements. Financial analysts want to
+compare the performance of a company to that of others in order to find financial trends
+on the markets. A tool commonly used by these parties is financial competitor
+benchmarking (Bendell, Boulter & Goodstadt, 1998).</p>
+<p>The purpose of financial competitor benchmarking is to objectively compare the
+financial performance of a number of competing companies (Karlöf, 1997). This form of
+benchmarking involves using quantitative data, i.e., numerical data, usually in the form
+of a number of financial ratios calculated using publicly available financial information.
+The information required for these comparisons can commonly be found in companies’
+annual reports.</p>
+<p>The problem with these comparisons is that the amount of data gathered quickly
+becomes unmanageable. Especially with the advent of the Internet, access to financial
+information is nearly infinite. This has led to a situation, faced by many managers and
+investors today, in which the amount of data available greatly exceeds the capacity to
+analyze it (Adriaans & Zantinge, 1996).</p>  
+<p>A possible solution to this problem is to use data-mining tools. Data-mining tools
+are applications used to find hidden relationships in data. One data-mining tool that could
+be particularly suitable for the problem in this case is the self-organizing map. Selforganizing maps are two-layer neural networks that use the unsupervised learning
+method. Self-organizing maps have been used in many applications. By 1998, over 3,300
+studies on self-organizing maps had been published (Kaski, Kangas, & Kohonen, 1998).
+Today, this figure is over 4,300 (Neural Networks Research Centre, 2001). Most applications of self-organizing maps have dealt with speech recognition, engineering applications, mathematical problems, and data processing (Kaski et al., 1998). Some examples of
+more recent research papers include cloud classification (Ambroise, Seze, Badran, &
+Thiria, 2000), image object classification (Becanovic, 2000), breast cancer diagnosis
+(Chen, Chang, & Huang, 2000), industrial process monitoring and modeling (Alhoniemi
+et al., 1999), and extracting knowledge from text documents (Visa, Toivonen, Back, &
+Vanharanta, 2000).</p> 
+  <p style="text-align: right;">pg.no:02</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">
+<p>Self-organizing maps group data according to patterns found in the dataset, making
+them ideal tools for data exploration. Kiang and Kumur (2001) compared the use of selforganizing maps to factor analysis and K-means clustering. The authors compared the
+tool’s performances on simulated data, with known underlying factor and cluster
+structures. The results of the study indicate that self-organizing maps can be a robust
+alternative to traditional clustering methods. A similar comparison was made by Costea,
+Kloptchenko, and Back (2001), who used self-organizing maps and statistical cluster
+analysis (K-means) to compare the economic situations in a number of Central-East
+European countries, based on a number of economic variables. The authors found the
+self-organizing map “a good tool for the visualization and interpretation of clustering
+results.”</p>   
+<p>However, although many papers on self-organizing maps have been published,
+very few studies have dealt with the use of self-organizing maps in financial benchmarking.
+An example of the application of neural networks for financial analysis is the study by
+Martín-del-Brío and Serrano-Cinca (1993). These authors used self-organizing neural
+networks to study the financial state of Spanish companies and to attempt to predict
+bankruptcies among Spanish banks during the 1977-85 banking crisis. Another example
+is the aforementioned study by Costea et al. (2001).</p>  
+<p>In our research group, we have conducted several studies on using self-organizing
+maps for benchmarking and data-mining purposes. Back, Sere, and Vanharanta (1998)
+compared 120 companies in the international pulp and paper industry. The study was
+based on standardized financial statements for the years 1985-89, found in the Green Gold
+Financial Reports database (Salonen & Vanharanta, 1990a, 1990b, 1991). The companies
+used in the experiment were all based in one of three regions: North America, Northern
+Europe or Central Europe. The companies were clustered according to nine different
+financial ratios: Operating profit, Profit after financial items, Return on Total Assets
+(ROTA), Return on Equity (ROE), Total Liabilities, Solidity, Current Ratio, Funds from
+Operations, and Investments. The ratios were chosen by interviewing a number of
+experts on which ratios they commonly used. The objective of the study was to
+investigate the potential of using self-organizing maps in the process of investigating
+large amounts financial data. Eklund (2000), Eklund, Back, Vanharanta, and Visa (2001),
+Karlsson (2001), Karlsson, Back, Vanharanta, and Visa (2001), and Öström (1999)
+continued assessing the feasibility of using self-organizing maps for financial
+benchmarking purposes.</p>
+<p>Back, Sere and Vanharanta (1997) and Back, Öström , Sere, and Vanharanta (2000)
+are follow-up studies to the 1998 paper. The principle difference is that maps for the
+different years were trained separately in Back et al. (1998), while a single map was used
+in Back et al. (1997) and Back et al. (2000). Moreover, in Back et al. (2000), the data was
+from 1996-1997 and collected from Internet. The results showed that a single map makes
+it easier to follow the companies’ movements over years. The results of the studies also
+gave further evidence that self-organizing maps could be feasible tools for processing
+vast amounts of financial data.</p>
+<p>The purpose of this study is to continue to assess the feasibility of using selforganizing maps for financial benchmarking purposes. In particular, in analyzing the
+results, we will assess the discovered patterns by putting more emphasis on interpreting
+the results with existing domain knowledge. This chapter is based on the findings of
+Eklund (2000).</p>  
+ <p style="text-align: right;">pg.no:03</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">    
+<p>The rest of this chapter is organized as follows: the next section describes the
+methodology we have used, benchmarking, the self-organizing map, and choice of
+financial ratios. Following that, we present the companies included in the study, and then
+discuss the construction of the maps. The last two sections of the chapter present the
+analysis of the experiment and the conclusions of our study.</p>
+<center>    
+<h3><b>METHODOLOGY</b></h3>
+    </center>
+<h4><b>Benchmarking</b></h4>    
+<p>The Xerox Corporation, one of the pioneers in benchmarking, uses the following
+definition of benchmarking: “Benchmarking is the continuous process of measuring our
+products, services and practices against the toughest competitors recognized as industry leaders” (Gustafsson, 1992).</p>  
+<p>The purpose of benchmarking is to compare the activities of one company to those
+of another, using quantitative or qualitative measures, in order to discover ways in
+which effectiveness could be increased. Benchmarking using quantitative data is often
+referred to as financial benchmarking, since this usually involves using financial
+measures.</p>    
+<p>There are several methods of benchmarking. The type of benchmarking method
+applied depends upon the goals of the benchmarking process. Bendell et al. (1998) divide
+benchmarking methods into four groups: <i>internal, competitor, functional, and generic
+benchmarking. This study is an example of financial competitor benchmarking.</i> This
+implies that different companies that are competitors within the same industry are
+benchmarked against each other using various quantitative measures (i.e., financial
+ratios). The information used in the study is all taken from the companies’ annual reports.</p>  
+<h4><b>Self-Organizing Maps</b></h4>    
+<p><i>Self-organizing maps (SOMs) are two-layer neural networks, consisting of an input
+    layer and an output layer.</i> SOMs are an example of neural networks that use the
+unsupervised learning method. This means that the network is presented with input data,
+but, as opposed to supervised learning, the network is not provided with desired outputs.
+The network is therefore allowed to freely organize itself according to similarities in the
+data, resulting in a map containing the input data. The SOM has turned out to be an
+excellent data-mining tool, suitable for exploratory data analysis problems, such as
+clustering, categorization, visualization, information compression, and hidden factor
+analysis.</p>  
+<p>Before the SOM algorithm is initiated, the map is randomly initialized. First, an array
+of nodes is created. This array can have one or more dimensions, but the most commonly
+used is the two-dimensional array. The two most common forms of lattice are rectangular
+and hexagonal, which are also the types used in the SOM_PAK software that was used
+to create the maps used in this experiment. These are illustrated in Figure 1. The figure
+represents rectangular and hexagonal lattices, i.e., 16 nodes. In the rectangular lattice,
+a node has four immediate neighbors with which it interacts; in the hexagonal lattice, it</p>
+ <p style="text-align: right;">pg.no:04</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<p><i>Figure 1: (a) Rectangular lattice (size 4 x 4), and (b) Hexagonal lattice (size 4 x 4).</i></p>    
+<img src="img%201.ch%2014.PNG" style="width: 110%;
+    height:50%;
+    display: table-footer-group;
+        margin: auto;">
+<p>has six. The hexagonal lattice type is commonly considered better for visualization than
+the rectangular lattice type. The lattice can also be irregular, but this is less commonly
+used (Kohonen, 1997).</p>   
+<p>d (Kohonen, 1997).
+Each node i has an associated parametric reference vector mi
+. The input data
+vectors, x, are mapped onto the array. Once this random initialization has been completed,
+the SOM algorithm is initiated.</p>    
+<p>OM algorithm is initiated.
+The SOM algorithm operates in two steps, which are initiated for each sample in thedata set (Kangas, 1994):</p>
+<p>Step 1: The input data vector x is compared to the weight vectors mi
+, and the best matchmc is located.</p> 
+<p>Step 2: The nodes within the neighborhood hci of c are “tuned” to the input data vectorx.</p>    
+<p>These steps are repeated for the entire dataset, until a stopping criterion is reached,
+which can be either a predetermined amount of trials, or when the changes are smallenough</p>
+<p>ough.
+In Step 1, the best matching node to the input vector is found. The best matching
+node is determined using some form of distance function, for example, the smallest
+Euclidian distance function, defined as mi x − . The best match, mc
+, is found by using
+the formula in Equation 1 (Kohonen, 1997):</p> 
+<img src="img%203.1%20ch%2014.PNG" style="width: 50%;
+    height:19%;
+    display: table-footer-group;
+        margin: auto;">
+<p>Once the best match, or winner, is found, Step 2 is initiated. This is the “learning
+step,” in which the network surrounding node c is adjusted towards the input data vector.
+Nodes within a specified geometric distance, hci, will activate each other and learn
+something from the same input vector x. This will have a smoothing effect on the weight
+vectors in this neighborhood. The number of nodes affected depends upon the type of</p>   
+<p style="text-align: right;">pg.no:05</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<p>lattice and the neighborhood function. This learning process can be defined as (Kohonen,1997)</p> 
+<img src="img%20.3.2%20ch%2014.PNG"style="width: 85%;
+    height:15%;
+    display: table-footer-group;
+        margin: auto;">
+<p>where t = 0,1,2,... is an integer, the discrete-time coordinate. The function hci(t) is the
+neighborhood of the winning neuron c, and acts as the so-called neighborhood function, a
+smoothing kernel defined over the lattice points. The function hci(t) can be defined in two
+ways. It can be defined as a neighborhood set of arrays around node c, denoted Nc, whereby
+hci(t) = a(t) if i ∈ Nc, and hci(t) = 0 if i ∉ Nc. Here a(t) is defined as a learning rate factor
+(between 0 and 1). Nc can also be defined as a function of time, Nc(t).</p> 
+<p>The function hci(t) can also be defined as a Gaussian function, denoted</p>   <img src="img%203.3%20ch%2014.PNG"style="width: 85%;
+    height:15%;
+    display: table-footer-group;
+    margin: auto;">
+<p>where α(t) is again a learning rate factor, and the parameter s(t) defines the width of the kernel,
+or radius of Nc(t).</p>
+<p>For small networks, the choice of process parameters is not very important, and the
+simpler neighborhood-set function for hci(t) is therefore preferable (Kohonen, 1997).
+The training process is illustrated in Figure 2. The figure shows a part of a hexagonal SOM.
+First, the weight vectors are mapped randomly onto a two-dimensional, hexagonal lattice.
+This is illustrated in Figure 2 (a) by the weight vectors, illustrated by arrows in the nodes,
+pointing in random directions. In Figure 2 (a), the closest match to the input data vector x
+has been found in node c (Step 1). The nodes within the neighborhood hci learn from node
+c (Step 2). The size of the neighborhood hci is determined by the parameter Nc(t), which is
+the neighborhood radius. The weight vectors within the neighborhood hci tune to, or learn
+from, the input data vector x. How much the vectors learn depends upon the learning rate
+factor α(t). In Figure 2 (b), the final, fully trained network is displayed. In a fully trained
+network, a number of groups should have emerged, with the weight vectors between the
+groups “flowing” smoothly into the different groups. If the neighborhood hci were to be too
+small, small groups of trained weight vectors would emerge, with largely untrained vectors
+in between, i.e., the arrows would not flow uniformly into each other. Figure 2 (b) is an example
+of a well-trained network.</p>    
+<p>The result of the SOM algorithm should be a map that displays the clusters of data,
+using dark shades to illustrate large distances and light shades to illustrate small
+distances (unified distance matrix, or U-matrix method) (Kohonen, 1997;Ultsch, 1993). On
+a finished map, lightly shaded borders indicate similar values, and dark borders indicate
+large differences. By observing the shades of the borders, it is possible to isolate clusters
+of similar data.</p>    
+<p>In order to identify the characteristics of the clusters on the U-matrix map, single
+vector-level maps, called feature planes, are also created. These maps display the
+distribution of individual columns of data— in this case, the values of individual financial</p>    
+ <p style="text-align: right;">pg.no:06</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">  
+<p><i>Figure 2: (a) A randomly initialized network after one learning step and (b) a fully
+trained network (Source: Kohonen, 1997).</i></p> 
+<img src="img%202.ch%2014.PNG" style="width: 85%;
+    height:50%;
+    display: table-footer-group;
+    margin: auto;">
+<p>ratios. Three examples of feature planes are illustrated below in Figure 3 (a), (b), and (c).
+The feature planes display high values using lighter shades, and low values with dark
+shades. For example, in Figure 3 (a), companies located in the lower left corner of the map
+have the highest values in Operating Margin, while companies in the lower right corner
+have the lowest values. In Figure 3 (b), companies located in the upper left corner have
+the highest Return on Equity, while companies in the right corner again have the lowest
+values and so on.</p> 
+<p><i>Figure 3: (a) Operating Margin, (b) Return on Equity, and (c) Equity to Capital feature
+planes</i></p>
+<img src="image%203.ch%2014.PNG"style="width: 105%;
+    height:68%;
+    display: table-footer-group;
+    margin: auto;">
+ <p style="text-align: right;">pg.no:07</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">    
+<p>The quality of a map can be judged by calculating the average quantization error,
+E. The average quantization error represents the average distance between the best
+matching units and the sample data vectors. The average quantization error can be
+calculated using the formula:</p> 
+<img src="img%203.5%20ch%2014.PNG" style="width: 85%;
+    height:15%;
+    display: table-footer-group;
+    margin: auto;"> 
+<p>where N is the total number of samples, xi is the input data vector, and mc is the bestmatching weight vector.</p>
+<p>Often, the correct training of a SOM requires that the input data be standardized
+according to some method. Sarle (2001) suggests that the best alternative is one in which
+the data is centered on zero, instead of, for example, within the interval (0,1). This view
+is also advocated by Kohonen (1997). A common approach is to use the standard
+deviation when standardizing the data. Another option would be to use histogram
+equalization (Klimasauskas, 1991), used among others by Back et al. (1998, 2000).</p> 
+<p>Although the optimal parameters are different in each case, there are a number of
+recommendations for parameters used in the training process. These are actually more
+like starting points, from which to work out the optimal parameters for the experiment in
+particular. These recommendations will be discussed below.</p>    
+<p>The network topology refers to the shape of the lattice, i.e., rectangular or
+hexagonal. The topology should, in this case, be hexagonal, since hexagonal lattices are
+better for visualization purposes, as was previously mentioned.</p>    
+<p>Network size, or the dimensions of the map, is important for visualization purposes.
+If the map is too small, differences between units are hard to identify. Movements from
+map to map are also difficult to illustrate. However, a small map is best for clusteridentification purposes. On the other hand, if the map is too large, the clusters do not
+appear, and the map seems “flat.” Another thing to remember is that the map dimensions
+should be rectangular instead of square. This is because the reference vectors must be
+oriented along with the x-axis in order for the network to stabilize during the learning
+process (Kohonen, Hynninen, Kangas, & Laaksonen, 1996). A commonly used principle
+is that the x-axis should be roughly 1.3 times the length of the y-axis</p> 
+<p>ich the network is allowed to learn a lot from each data vector. Therefore, learning rates
+and radiuses are high in the first phase, and there are less training steps (smaller training
+length). The second phase is a fine-tuning phase, in which the network learns less at a
+time, but data vectors are introduced to the network more times. Thus, learning rates and
+radiuses are lower than in the first phase, but the training length is much higher.</p> 
+<p>The training length in each phase refers to how many training steps are used, i.e.,
+how many times data vectors are introduced to the network. The statistical accuracy of
+the mapping depends upon the number of steps in the final learning phase. This phase,
+therefore, has to be relatively large. A good rule of thumb is that, in order to achieve good
+statistical accuracy, the amount of steps in the final phase must be at least 500 times the
+amount of nodes in the network (Kohonen, 1997). It is common practice for the initial
+training phase to have at least 10% of the amount of steps used in the final phase.</p>
+<p style="text-align: right;">pg.no:08</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">    
+<p>The learning rate factor, or α(t), refers to how much a node learns from each data
+vector and should start out as fairly large in the first phase, but should be very low in
+the final phase. A commonly used starting point is 0.5 for the first phase, and 0.05 in the
+final phase.</p> 
+<p>The selection of the network neighborhood size, Nc
+(t), is possibly the most
+important parameter. If the selected neighborhood size is too small, the network will not
+be ordered globally. This will result in various mosaic-like patterns, with unordered data
+in between. Therefore, the initial network radius should be rather large, preferably larger
+than half the network diameter (Kohonen, 1997). Generally, the final network radius
+should be about 10% of the radius used in the first part.</p> 
+<h4><b>Financial Ratios</b></h4>    
+<p>The performance of the companies included was rated according to seven different
+financial ratios. These were chosen based on an empirical study by Lehtinen (1996).
+Lehtinen rated different ratios according to two factors: their reliability in the international context, and the validity of the ratio. The reliability of a ratio implies how much the
+ratio is affected by international accounting differences, while validity measures how
+well the ratio measures the intended principle (Lehtinen, 1996). Since the comparison in
+this experiment is an international one, high reliability has been prioritized.</p>   
+<p>Financial ratios can be divided into four classes: profitability ratios, liquidity ratios,
+solvency ratios, and efficiency ratios (Lehtinen, 1996). The emphasis in this experiment
+has been on profitability, since this can be considered the most commonly used measure
+of a company’s success. The chosen ratios are displayed below:</p> 
+<img src="img%203.6%20ch%2014.PNG"style="width: 85%;
+    height:55%;
+    display: table-footer-group;
+    margin: auto;">
+<p style="text-align: right;">pg.no:09</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">   
+    
+<img src="img%203.7%20ch.14.PNG"style="width: 95%;
+    height:65%;
+    display: table-footer-group;
+    margin: auto;"> 
+<p>Profitability naturally measures how well a company is able to generate profit on the
+invested capital. Operating Margin was chosen as the first ratio for three reasons. First,
+it is a very commonly used ratio, and second, it is very simple and quick to calculate.
+Finally, and most importantly, it is a rather reliable measure in an international context.
+This is because it uses total income instead of net income, thus ignoring posts like
+extraordinary income/expenses, depreciation in excess of plan, and taxation. There is,
+however, a problem with Operating Margin. Since Operating Margin is an income
+statement ratio, implying that figures are only taken from the income statement, the ratio
+does not take capital into account. This makes the ratio less valid (Lehtinen, 1996).</p>
+<p>In order to remedy this, Return on Equity (ROE) and Return on Total Assets (ROTA)
+were also included as profitability ratios. These ratios are called mixed ratios, since they
+take into account both the income statement and the balance sheet, thus providing us
+with ratios that take into account both profit and capital. This makes them very valid ratios
+for measuring profit. Of the two ratios, ROE is more sensitive to international accounting
+differences, thus making it slightly less reliable than Operating Margin or ROTA. This
+is because ROE uses net income, which is more heavily influenced by accounting
+differences than total income. Also, the denominator of ROE includes retained earnings,
+which contain differences retained from previous years. However, because of its very
+high validity, ROE was included in the experiment. ROTA, on the other hand, is both very
+valid and very reliable in an international context (Lehtinen, 1996).</p>
+<p>Liquidity ratios measure the ability of a company to meet its short-term financial
+obligations, i.e., how much liquid assets (cash, sales receivables, inventories, etc.) a
+company has. Quick Ratio, like Operating Margin, was chosen because it is commonly
+used, is easy to calculate, and is very reliable. Quick ratio, unlike Current Ratio, does not
+include the value of inventories, since these are in many ways not as liquid as receivables
+or cash. However, Quick Ratio is less valid than ratios that include figures from both the
+income statement and balance sheet. However, such ratios are very complicated to
+calculate and are not as reliable as Quick Ratio and Current Ratio (Lehtinen, 1996)</p>
+ <p style="text-align: right;">pg.no:10</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">   
+<p>Solvency ratios measure how indebted a company is, or how well a company is able
+to meet its long-term financial obligations. Equity to Capital is included because it is one
+of the most commonly used ratios in financial comparisons. However, it does suffer from
+much of the same problems as ROE and is not therefore as reliable as some other ratios.
+Therefore, Interest Coverage was included as a second solvency ratio, since it is much
+more reliable than Equity to Capital (Lehtinen, 1996).</p> 
+<p>Efficiency, as the name indicates, measures how efficiently a company uses its
+resources. In this experiment, Receivables Turnover was chosen since it is both valid and
+reliable (Lehtinen, 1996).</p>
+<center>    
+<h2><b>COMPANIES INCLUDED</b></h2>   
+    </center>
+<p>Each year, in its September issue, Pulp and Paper International ranks the top 150
+pulp and paper-producing companies in the world, according to net sales. The list for 1998
+(Matussek, Janssens, Kenny, & Riannon, 1999) was used as the basis when choosing
+the companies in Eklund et al. (2001). Since then, an updated list has been reviewed
+(Rhiannon, Jewitt, Galasso, & Fortemps, 2001), and the changes were incorporated in the
+experiment. This experiment was limited to using data available through the companies’
+annual reports for the years 1995-2000. The primary source for these annual reports was
+the individual companies’ homepages on the Internet, but any physical reports available
+were also used.</p>
+<p>The principle problem in the choice of companies was getting annual reports for all
+five years. As it turns out, many companies did not provide enough information on their
+homepages, and we were forced to leave out many companies that were highly ranked
+on the Top 150 list. This problem was most common among European (excluding
+Scandinavian companies) and Asian countries, although some U.S. and Canadian
+companies also caused difficulties. However, through large online databases, we were
+able to obtain adequate financial information for most U.S., Canadian, and Japanese
+companies. Generally, the companies that provided the most financial information on
+their pages were Finnish or Swedish. The final selection of companies is illustrated in
+Table 1.</p>   
+<p>Some companies could not be included for other reasons. For example, on the list
+for 2000, Proctor & Gamble (P&G) was listed as the third largest producer in the world.
+However, as only 30% of P&G’s turnover comes from pulp and paper, we decided not to
+include it. Also, number six on the list, Nippon Unipac holding, was formed by the merger
+of Nippon Paper Industries and Daishowa Paper in March 2001, and was, therefore, still
+included as two separate companies. Also, two companies (Stora Enso and UPMKymmene), were included as single companies, even though they emerged through the
+mergers of companies during the course of the experiment. However, using consolidated
+reports published by the companies after the merger, we included them as single
+companies, in order to simplify analysis</p>
+<p style="text-align: right;">pg.no:11</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">
+<p><i>Table 1: The included companies</i></p>    
+<img src="img%204.ch14.PNG"style="width:105%;
+    height:125%;
+    display: table-footer-group;
+    margin: auto;">
+<center>
+    <h2><b>CONSTRUCTING THE MAPS</b></h2>
+    </center>    
+<p>In order to improve the training process of the neural network, input data must often
+be preprocessed. In this case, we refer to preprocessing as the process of standardizing
+the data according to some method, although the term also includes the “cleaning” of
+data, i.e., the removal of errors, missing values, and inconsistencies. If data is not
+preprocessed, the neural network might expend its learning time on variables with large
+variances or values, and therefore ignore variables with smaller variances or values.</p>
+<p style="text-align: right;">pg.no:12</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<p>Preprocessing of data is a much-discussed method in literature concerning neural
+networks. Sarle (2001) suggests that the most suitable form of normalization centers the
+input values around zero, instead of, for example, within the interval [0,1]. This would
+imply the use of, for example, normalization by standard deviation. Kohonen (1997)
+suggests two methods for standardizing the data: normalization by standard deviation
+and heuristically justifiable rescaling. Another method, suggested by Klimasauskas
+(1991), and used, for example, by Back et al. (1998, 2000), is histogram equalization.
+Histogram equalization is a way of mapping rare events to a small part of the data range,
+and spreading out frequent events. This way the network is better able to discriminate
+between rare and frequent events.</p> 
+<p>Normally, the values should be scaled according to their relative importance.
+However, according to Kaski and Kohonen (1996), this is not necessary when no
+differences in importance can be assumed. As this is also the case in this experiment, we
+have not used any form of scaling according to importance. Instead, the relative
+importance of the different categories of ratios has been set through the balance of ratios
+(three in profitability, two in solvency, one in liquidity, and one in efficiency).</p>    
+<p>In this experiment, the data has been standardized according to the variance of the
+entire dataset (Equations 5 and 6), also the method used by Kaski and Kohonen (1996).</p> 
+<img src="img%203.9%20ch%2014.PNG"style="width:55%;
+    height:38%;
+    display: table-footer-group;
+    margin: auto;">  
+<p>where M = number of ratios, N = number of observations, x = value of ratio, and x = the
+average of the financial ratios</p> 
+<p>Normalizing the data according to the standard deviation was tried, but the maps
+obtained using this method were unsatisfactory for clustering purposes. Also, in order
+to achieve feasible results, a preliminary rescaling had to be done. This implied replacing
+extreme values with 50 (positive or negative). The reason for this is that a number of the
+ratios reached incredibly high values, which caused the SOM to illustrate one area with
+extreme values on the map, with the rest of the map being flat and uninterpretable.
+Therefore, such extreme values were replaced in this experiment.</p>
+<p>The SOM_PAK 3.1 program package was used to train the maps in this experiment.
+SOM_PAK is a program package created by a team of researchers at the Neural Networks
+Research Centre (NNRC) at the Helsinki University of Technology (HUT). SOM_PAK
+can be downloaded from http://www.cis.hut.fi/research/som_pak/, and may be freely
+used for scientific purposes. Readers are referred to the program package for sample data.
+The maps were visualized using Nenet 1.1, another downloadable program. A limited
+demo version of Nenet is available at http://koti.mbnet.fi/~phodju/nenet/Nenet/
+Download.html. Nenet is actually a complete SOM training program, but the demo
+version is severely limited, and has been used for visualization, since the maps are</p>
+ <p style="text-align: right;">pg.no:13</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">
+<p>illustrated in shades of green instead of black and white. In our opinion, this makes the
+maps easier to interpret</p>  
+<p>Several hundred maps were trained during the course of the experiment. The first
+maps were trained using parameters selected according to the guidelines presented in
+the previous section. The best maps, rated according to quantization error and ease of
+readability, were then selected and used as a basis when training further maps. The final
+selected network size was 7 × 5 . We felt that this map size offered the best balance
+between cluster identification and movement illustration. Clusters were easier to identify
+than on a 9 × 6 sized map, and movements within the clusters were easier to identify than
+on a 5 × 4 sized map. A smaller map could have been used if a separate map had been
+trained for each year, but our intention was to use the same map for the entire dataset.
+A 7 × 5 sized map seemed large enough to incorporate the data for each year included
+in the test. The 7 × 5 lattice also conforms to the recommendation that the x-axis be =
+1.3 × the y-axis. The simpler neighborhood-set function or bubble, referring to an array
+of nodes around the winning node, Nc
+ (Kohonen et al., 1996) for hci(t) is preferred over
+the Gaussian function in the training of smaller maps (Kohonen, 1997), and was therefore
+used in this experiment as well</p> 
+<p>The number of steps used in the final phase was generated directly from the
+recommendations provided in the previous section. Therefore, the initial phase includes
+1,750 steps and the final phase 17,500 steps. The learning rate factor was set to 0.5 in the
+first phase and 0.05 in the second, also as was recommended. The neighborhood radius
+was set to 12 for the first phase and 1.2 for the second. The initial radius was very large
+compared to the recommendations, but seemed to provide for the overall best maps. As
+the first phase is intended for rough training, the initial radius was allowed to be the entire
+map. In the fine-tuning phase, the radius was reduced considerably. Decreasing the
+radius in the first phase only resulted in poorer maps.</p>  
+<p>Kohonen (1997) noted that the selection of parameters appears to make little
+difference in the outcome when training small maps. This also appears to be the case in
+this experiment. As long as the initial selected parameters remained near the guidelines
+presented above, the changes in the quantization error were very small, usually as little
+as 0.001. Some examples of the parameters and outcomes are illustrated in Table 2. These
+are only a fraction of the entire training set, but illustrate well the small differences in
+results</p> 
+<p><i>Table 2: Examples of trained 7x5 maps</i></p> 
+<img src="image%206.ch%2014.PNG"style="width:95%;
+    height:80%;
+    display: table-footer-group;
+    margin: auto;">  
+<p style="text-align: right;">pg.no:14</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">
+<p>Table 2 shows that the changes in quantization errors are very small, irrespective
+of the parameters used. The map that was finally chosen was Map 1. It is notable that this
+map was trained using parameters generated directly from the recommendations above,
+with the exception of the network radius. Map 7 has a marginally better quantization error,
+but the difference is negligible, so the map closer to the original recommendations, Map
+1, was selected. The appearance of the maps was monitored throughout the experiment,
+but very small differences in the resulting maps surfaced. Although the maps might look
+slightly different, the same clusters containing approximately the same companies, were
+found in the same positions relative to each other. While the “good” end of one map might
+have been found on the opposite side of another map, the same clusters could still be
+seen to emerge. This shows the random initialization process of the self-organizing map,
+but also proves that the results from one map to another are consistent.</p>
+<p>A single map including all five years of data was trained. By studying the final Umatrix map (Figure 4a), and the underlying feature planes (Appendix) of the map, a number
+of clusters of companies, and the characteristics of these clusters, can be identified
+(Figure 4 b).</p>
+    <p>The groups and their characteristics are presented as the following</p>    
+<p>Group A consists of the best performing companies. Group A is divided into two
+subgroups: A1
+ and A2
+. The companies in subgroup A1
+ are the best performing of
+all companies, especially according to profitability ratios. These companies have
+very high profitability, solidity, and efficiency, and medium liquidity. Subgroup A2
+consists of well-performing companies with high profitability (especially in Return
+on Equity ratios), and average solidity and liquidity.</p>
+<p><i>Figure 4: (a) The final U-matrix map, and (b) identified clusters on the map.</i></p>  
+<img src="img%207%20ch%2014.PNG"style="width:108%;
+    height:76%;
+    display: table-footer-group;
+    margin: auto;">  
+<p><i>Table 3: Cluster descriptions</i></p> 
+<img src="img%208%20ch%2014.PNG"style="width:125%;
+    height:120%;
+    display: table-footer-group;
+    margin: auto;">
+<p style="text-align: right;">pg.no:15</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<p>Group B is an average group, performing decently according to all ratios. The companies
+in Group B have low profitability but high solidity.</p> 
+<p>Group C can be classed as a slightly above-average group. Group C has lower Equity to
+Capital ratios than Group B. However, Group C has higher profitability, notably in
+Return on Equity ratios. In addition, Group C contains the companies that have the
+highest liquidity. Group C has average to high profitability, average solidity, and
+very high liquidity</p> 
+<p>Group D is best classed as slightly below average. The group has average solidity, but
+low profitability and very low liquidity. This group also contains the companies
+with the lowest efficiency ratios</p> 
+<p>Group E is the poorest performing group. The group contains companies that are
+performing poorly according to almost all ratios, especially profitability ratios</p>
+<p>The characteristics of the groups are summarized in Table 3.</p>
+<center>
+    <h2><b>RESULTS</b></h2>
+    </center>
+<h2><b>Country Averages</b></h2>  
+<p>The first benchmarking objects were the averages for each country or region
+included in the experiment. The regional averages consist of the average values of the
+ratios of all companies from that region. By benchmarking the national or regional
+averages first, it is possible to isolate differences due to accounting practices or other
+differences that affect all companies from a given country.</p>  
+<p>The results are presented in Figure 5. The arrows indicate movements from year to
+year, starting from 1995. The Finnish average’s movements are shown using solid lines,</p>  
+<p><i>Figure 5: Country averages for the years 1995-2000.</i></p>    
+  <img src="img%209%20ch%2014.PNG"style="width:95%;
+    height:55%;
+    display: table-footer-group;
+    margin: auto;">
+<p style="text-align: right;">pg.no:16</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">     
+<p><i>Figure 6: Market pulp prices 1985-99 (Source: Metsäteollisuus ry Internal report;
+Keaton, 1999).</i></p> 
+<img src="img%2010%20ch%2014.PNG"style="width:100%;
+    height:45%;
+    display: table-footer-group;
+    margin: auto;">
+<p>U.S. average’s movements using dashed lines, and Japanese average’s movements
+using dotted lines. The figure illustrates that the performance of Finnish companies, on
+average, has been slightly above average. The Finnish average has remained in Group
+C throughout the experiment, except for during 1995, when it was within Group A2. This
+implies that while Return on Equity has been high, other profitability ratios have been
+average. This is probably due to the common Finnish practice of heavy financing by debt.
+Where Return on Total Assets is considered, Finnish performance is merely average.
+Finnish Quick Ratios, on the other hand, are very good throughout, and excellent during
+1998-2000.</p> 
+<p>The excellent performance of the Scandinavian countries during 1995 is very
+interesting. During 1995, Finnish, Swedish, and Norwegian companies, on average,
+outperformed all other companies, except for Canadian companies. However, the following years indicate drastically reduced profitability. A likely explanation for this trend is
+the fall in market pulp prices during the later half of the 1990s. In 1995, market pulp prices
+were very high (USD 871 / metric ton), but fell drastically during the following years to
+USD 480 / metric ton in mid 1999 (Keaton, 1999). Pulp prices are illustrated in Figure 6</p>  
+<p>The poorest average is displayed by Japan. The Japanese average is consistently
+in one of the two poor groups, Group D or E. The drop during 1997 is likely due to the
+Asian financial crisis. Interestingly, the Asian financial crisis does not seem to affect
+other countries as badly as might be expected. The national averages of Sweden, Norway,
+and the U.S. do drop somewhat, but not nearly as dramatically or obviously as the
+Japanese average.</p>  
+<p>Another factor that might affect the Japanese average is prevailing accounting
+laws. Japanese accounting laws are very restrictive, compared to, for example, U.S.
+accounting laws. For example, Japanese companies value assets at historical costs, never
+at valuation. They are also forced to establish non-distributable legal reserves, and most
+costs must be capitalized directly. Also, with accounting statements being used to
+calculate taxation, there is an incentive to minimize profits. Overall, Japanese accounting</p>  
+<p style="text-align: right;">pg.no:17</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<p>principles can be seen as very conservative, and so might lead to understated asset and
+profit figures, especially when compared to U.S. or other Anglo-Saxon figures. These
+factors might partly explain the poor performance of the Japanese companies in this
+experiment (Nobes & Parker, 1991).</p>   
+<p>Sweden, Norway, Europe, and the U.S. exhibit rather similar behavior, only really
+differing during the year 1995, when Finnish, Swedish, and Norwegian performance was
+excellent (Group A2
+). During most years, these countries show low to average profitability and average solvency. The companies in question are usually found in Groups C or
+D. Canadian companies consistently show better solvency than most companies from
+the other countries, being found in Group B during most years. Scandinavian accounting
+laws can also be seen as rather conservative, compared to Anglo-Saxon laws. Scandinavian companies also value assets at historical costs, but are, on the other hand, not
+forced to establish non-distributable legal reserves</p>
+<p>The widely differing results of the Finnish, Canadian, and Japanese companies
+indicate that national differences, such as financing practices or accounting differences,
+might have an effect on the overall positioning of companies on the map. On the other
+hand, the financial ratios have been chosen based on their reliability in international
+comparisons, in order to minimize differences relating to accounting practices</p>
+<h3><b>The Five Largest Pulp and Paper Companies</b></h3> 
+<p>In Figure 7, the Top Five pulp and paper manufacturing companies (Rhiannon et al.,
+2001) are benchmarked against each other. Again, the movements from year to year are
+illustrated with arrows: solid black lines for International Paper, dashed black lines for
+Georgia-Pacific, solid white lines for Stora Enso, dotted white lines for Oji Paper, and</p> 
+<p><i>Figure 7: Movements of the top five pulp and paper companies during the years 1995-2000.</i></p>  
+<img src="img%2011%20ch%2014.PNG"style="width:95%;
+    height:65%;
+    display: table-footer-group;
+    margin: auto;">
+  <p style="text-align: right;">pg.no:18</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">  
+<p>dashed white lines for Smurfit-Stone Container Corp. As was mentioned earlier, Proctor
+& Gamble and Nippon Unipac Holding could not be included in this study, and therefore,
+Smurfit-Stone Container Corp. rose into the Top Five instead.</p>
+<p>An interesting note is that, with the exception of 1995, International Paper, the
+largest pulp and paper manufacturer in the world, is consistently found in one of the
+poorly performing groups, showing poor performance during most years, particularly
+according to profitability ratios.</p> 
+<p>Georgia-Pacific (GP), the second largest in the world, rose into the Top Five through
+its acquisition of Fort James in 2000. With exception of 1995 and 1999, GP’s performance
+is not very convincing. Profitability is average to poor, and solidity is average. It is,
+however, interesting to note that the performance of Georgia-Pacific is very similar to that
+of Stora Enso during the years 1995-1997.</p>    
+<p>Stora Enso (fourth largest) moves from very good in 1995 to downright poor
+performance in 1997. The substantial change in position on the map in 1998 was due to
+a combination of two factors. The first was decreased profitability due to costs
+associated with the merger of Stora and Enso. The second factor was a strengthened
+capital structure, which of course further affected profitability ratios like ROE and ROTA.
+However, profitability improved again in 1999. Stora Enso was performing excellently in
+1995, when pulp prices were high, but profitability fell as market pulp prices dropped. In
+2000, however, Stora Enso was among the best performing companies.</p>
+<p>As can be expected, the performance of Oji Paper (fifth largest) reflects the Japanese
+average and is very poor. This points to the effect of the Asian financial crisis, which is
+examined in the next section.</p>  
+<p>Smurfit-Stone Container Corp., the seventh largest in the world, is consistently a
+very poor performer. The company does not move at all during the experiment, being
+found in Group E during all years. The company consistently shows low profitability and
+liquidity, and very low solidity.</p> 
+<p>With the notable exception of Stora Enso, performance among the top companies
+is very poor, particularly in profitability ratios. In the Top 150 list from 1998 (Matusek et
+al., 1999), the Top Five still included Kimberly-Clark and UPM-Kymmene (currently
+eighth and ninth). These companies, in particular Kimberly-Clark, are very good performers, as will be shown in later in the chapter. The consolidation of the industry during the
+past few years has led to very large, but also largely inefficient companies.</p>  
+<h3><b>The Impact of the Asian Financial Crisis</b></h3>  
+<p>During the nineties, the Asian economy was hard hit by the financial crisis. This
+means that it will have affected many companies during a long period. However, the peak
+of the crisis was during 1997-98 (Corsetti, Pesenti, & Roubini, 1998), and should therefore
+show most dramatically during the years 1998 and 1999. As was mentioned in an earlier
+discussion, financial information for the year 2000 was very hard to find for Japanese
+companies. Therefore, only a few companies could be included for 2000.</p>
+<p>Figure 8 illustrates the Japanese companies during the years 1997-99. Movements
+by the companies are illustrated using solid white arrows.</p> 
+<p>The effect of the crisis is obvious on the map. Although Japanese companies
+already appear to be performing worse than western companies (as discussed earlier),
+the trend towards even worse performance during the years 1998 and 1999 is obvious</p>    
+<p style="text-align: right;">pg.no:19</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">
+<p><i>Figure 8: Japanese companies during the years 1997-2000</i></p> 
+<img src="img%2012%20ch%2014.PNG"style="width:95%;
+    height:65%;
+    display: table-footer-group;
+    margin: auto;">
+<p>The most dramatic example of this is Daishowa Paper Manufacturing (Company No.
+63), which moved from Group A2 (excellent) to Group E (very poor) in three years. The
+same can be said, for example, of Nippon Paper Industries (No. 69), Daio Paper (No. 62),
+Mitsubishi Paper (No. 67), and Hokuetsu Paper Mills (No. 65), although the effect has
+not been as dramatic as for Daishowa Paper Manufacturing. Some companies appear
+unaffected and remain in the same node throughout the years 1997-99. Examples of such
+companies are Tokai Pulp & Paper (No. 74), Rengo (No. 72), and Chuetsu Paper (No. 64).
+The only example of the opposite behavior is Pilot (No. 71, illustrated using solid black
+arrows), which improves from Group D in 1998 to Group B in 1999-2000.</p> 
+<p>It is remarkable that, apart from Pilot, no Japanese company improved its positioning
+on the map during the years 1997-99. This is proof of the heavy effect that the crisis has
+had on the Japanese economy.</p>
+<h3><b>The Best Performers</b></h3>    
+<p>In Figure 9, the best performing companies are shown. The criterion for being
+selected was that the company could be found in Group A during at least three years
+during the period 1995-99.</p> 
+<p>A number of interesting changes in companies’ positions can be observed on the
+map in Figure 9. Some of the companies show a dramatic improvement in performance over
+the years. For example, Caraustar Industries (No. 21, solid white arrow) moves from being
+in Group E during 1995, to four straight years (1996-99) in Group A2
+. Caraustar attributes
+this increase to completed acquisitions and lower raw material costs. However, in 2000,
+the company drops back into Group D. In its annual report, Caraustar states that this
+dramatic decrease in profitability is primarily due to restructuring and other nonrecurring
+costs, and also to a certain extent, higher energy costs and lower volumes. Kimberly-Clark
+exhibits a similar increase (No. 30, dashed white arrow), moving from the poor end of the</p>
+<p style="text-align: right;">pg.no:20</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">    
+<p><i>Figure 9: The best companies</i></p> 
+<img src="im%20g%2013%20ch%2014.PNG"style="width:95%;
+    height:60%;
+    display: table-footer-group;
+    margin: auto;">
+<p>map in 1995, to Group A1
+ during 1996-99. Kimberly-Clark explains the poor performance
+of 1995 with the merger between Kimberly-Clark and Scott Paper Company. The merger
+required the sale of several profitable businesses in order to satisfy U.S. and European
+competition authorities. The merger also caused a substantial one-time charge of 1,440
+million USD, decreasing profitability further. However, profitability was back up again
+in 1996, and remained excellent through to 2000. On the other hand, Riverwood Holding
+(No. 37, solid black arrow) goes from Group A1
+ in 1995-97, to Group A2
+ in 1998, and Group
+E in 1999-00. This decrease in performance is rather dramatic, and can, according to
+Riverwood, be attributed to lower sales volumes in its international folding cartonboard
+markets. This was primarily due to weak demand in Asia, and to the effect of the canceling
+of a number of low-margin businesses in the U.K.</p>    
+<p>Some of the consistently best-performing companies include Wausau-Mosinee
+Paper (No. 44), Schweitzer-Mauduit Intl (No. 39), Buckeye Technologies (No. 20), UPMKymmene (No. 5, dashed black arrows), and Donohue (No. 56, which was acquired by
+Abitibi Consolidated in 2000).</p>    
+<h3><b>The Poorest Performers</b></h3> 
+<p>The poorest performing companies are illustrated in Figure 10. The criterion for
+being selected was that the company could be found in Group E (the poorest group)
+during at least three years.</p> 
+<p>This map also shows some dramatic movement. Crown Vantage (No. 24, solid black
+arrow) is perhaps the most dramatic example; in one year, the company fell from Group
+A2
+ (1995) to Group E (1996-99). Crown Vantage states in its annual report that the reason
+for its poor performance in 1996 is the low price of coated ground-wood paper, and that
+when it spun off from James River Corporation (now Fort James) at the end of 1995, Crown</p> 
+<p style="text-align: right;">pg.no:21</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">    
+<p><i>Figure 10: The poorest performing companies</i></p>    
+<img src="img%2014%20ch%2014.PNG"style="width:65%;
+    height:55%;
+    display: table-footer-group;
+    margin: auto;">
+<p>Vantage assumed a large amount of debt. Crown Vantage was unable to pay this debt,
+and applied for a Chapter 11 (bankruptcy) on March 15, 2000. Year 2000 data is therefore
+not available.</p>
+<p>Doman Industries (No. 54, solid white arrows) exhibits similar, through not as
+dramatic, behavior. Doman falls from Group B (1995) to settle in Group D or E throughout
+the rest of the experiment. According to Doman, this was due to a poor pulp market. In
+1997, the market for pulp improved, only to decline again in 1998. Doman cites the Asian
+financial crisis as the reason for the second drop, primarily the declining market in Japan.
+Temple-Inland (No. 42, dashed white arrow) falls from Group B in 1995 to Group E in 1997,
+from where it rises back to Group B in 2000. Temple-Inland states weak demand and
+lowered prices for corrugated packaging as the reason for this decline in 1997. An example
+of the opposite behavior is Reno de Medici (No. 81, dashed black arrows), which moves
+from Group D in 1995, through Group E in 1996, to Group A2 in 1999. However, the
+company falls back into Group E in 2000.</p>    
+<p>A number of companies identified as very poor performers are also illustrated on
+the map. These are Crown Vantage (No. 24, solid black arrows), Gaylord Container Corp
+(No. 26), Jefferson-Smurfit Corp (No. 29), and Settsu (No. 73).</p>
+<center>
+    <h3><b>CONCLUSIONS</b></h3>
+    </center>    
+<p>In this study, financial information for 77 companies in the international pulp and
+paper industry for the years 1995-2000 was collected using the Internet as a source of
+information, and a financial database was created. A number of financial ratios were
+selected and calculated based on the information in the database. Then, a data-mining
+tool, the self-organizing map, was used to perform a financial competitor benchmarking
+of these companies.</p>
+ <p style="text-align: right;">pg.no:22</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">    
+<p>This tool offers a number of benefits over other alternatives. Using self-organizing
+maps, we can compare much larger amounts of data than by using spreadsheet programs.
+It is also useful for exploratory data analysis, where patterns are not known a priori. Unlike
+traditional clustering methods, like k-means clustering, the number or size of clusters
+does not have to be decided a priori, and visualization is much more graphic. A drawback
+with self-organizing maps is that the person who runs the analysis has to be an
+experienced user of neural networks. Also, like all neural networks, self-organizing maps
+are “black boxes,” i.e., the user does not see how the network works or what it does, only
+the result. Finally, technical issues, such as standardizing the data, are very important
+for the final result.</p>    
+<p>The results of the study provide further evidence that the self-organizing map is a
+feasible and effective tool for financial benchmarking. The results are easy to visualize
+and interpret, and provide a very practical way to compare the financial performance of
+different companies. The discovered patterns were confirmed with existing domain
+knowledge.</p>   
+<center>
+    <h2><b>FUTURE RESEARCH IN THIS AREA</b></h2>
+    </center>    
+<p>With managers facing increasing amounts of information to process daily, the need
+for intelligent tools to perform these operations is likely to increase in the future. This
+situation is accentuated by the exponentially increasing amount of information available
+through the Internet. We simply cannot cope with this information overload any longer
+without using intelligent tools. Therefore, the use of data-mining tools, such as selforganizing maps, is likely to increase dramatically in the future.</p>  <p>In this study, the self-organizing map has been shown to be a feasible tool for
+financial benchmarking. The results are easy to visualize and interpret, provide a very
+practical way to compare the financial performance of different companies, and could be
+used as a complement to traditional net sales comparisons ( Rhiannon, Jewitt, Galasso,
+& Fortemps, 2001).</p>  
+<p>Using this method, an interesting pattern emerges. It is interesting to note that most
+of the largest pulp and paper-producing companies in the world, with the exception of
+Kimberly-Clark, belong to below-average groups. The ranking shows that the largest
+companies according to net sales are not necessarily the best-performing companies. In
+fact, the smaller companies appear to utilize their resources much more effectively than
+their larger competitors.</p>    
+<p>As has been shown in several studies (Neural Networks Research Centre, 2001), the
+application range for self-organizing maps is virtually limitless, and is certainly not
+restricted to use in financial benchmarking. One potentially huge application for selforganizing maps in the future is within Web mining. Web mining is a data-mining
+technique for comparing the contents of Web pages in order to provide more accurate
+search engines. The possibility of applying neural network technology, called WEBSOM,
+to solve this problem is very interesting, and preliminary results are encouraging
+(Honkela, Kaski, Lagus, & Kohonen, 1997; Lagus, 2000).</p> 
+ <p style="text-align: right;">pg.no:23</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<center>
+    <h2><b>ACKNOWLEDGMENTS</b></h2>
+    </center>    
+<p>The financial support of TEKES (Grant Number 40943/99) and the Academy of
+Finland is gratefully acknowledged.</p>
+<center>
+    <h2><b>REFERENCES</b></h2>
+    </center>     
+    <p>Adriaans, P. & Zantinge, D. (1996).<i> Data mining. </i>Boston, MA: AddisonWesley Longman.
+Alhoniemi, E., Hollmén, J., Simula, O., & Vesanto, J. (1999). Process monitoring and
+        modeling using the self-organizing map. <i>Integrated Computer Aided Engineering,</i>
+6(1), 3-14</p>    
+    <p>Ambroise, C., Seze, G., Badran, F., & Thiria, S. (2000). Hierarchical clustering of selforganizing maps for cloud classification.<i> Neurocomputing, </i>30(1), 47-52</p> 
+    <p>Back, B., Sere, K., & Vanharanta, H. (1997). Analyzing financial performance with selforganizing maps.<i> Proceedings of the Workshop on Self-Organizing Maps </i>WSOM’97,
+June, Espoo, Finland: Helsinki University of Technology, 356-361.</p>    
+<p>Back, B., Sere, K., & Vanharanta, H. (1998). Managing complexity in large data bases
+    using self-organizing maps. <i>Accounting Management and Information Technologies </i>8, 191-210.</p> 
+<p>Back, B., Öström, K., Sere, K., & Vanharanta, H. (2000). Analyzing company performance
+using Internet data.<i> Proceedings of the 11th Meeting of the Euro Working Group
+    on DSS, </i>June, Toulouse, France: IRIT, Université Paul Sabatier, 52-56.</p>
+    <p>Becanovic, V. G. M. U. (2000). Image object classification using saccadic search, spatiotemporal pattern encoding and self-organization.<i> Pattern Recognition Letters,</i>
+21(3), 253-263.</p>
+    <p>Bendell, T., Boulter, L., & Goodstadt, P. (1998).<i> Benchmarking for competitive</i> advantage. London: Pitman Publishing.</p>
+<p>Chen, D., Chang, R., & Huang, Y. (2000). Breast cancer diagnosis using self-organizing
+    maps for sonography.<i> Ultrasound </i>in Medicine and<i> Biology, </i>26, 405-411.</p>
+<p>Corsetti, G., Pesenti, P., & Roubini, N. (1998). What caused the Asian currency and
+financial crisis? Part 1: A macroeconomic view. Available online at: < http://
+www.stern.nyu.edu/globalmacro/AsianCrisis.pdf >.</p> 
+<p>Costea, A., Kloptchenko, A., & Back, B. (2001). Analyzing economical performance of
+central-east-European countries Using neural networks and cluster analysis,
+    <i>Proceedings of the Fifth International Symposium on Economic Informatics,</i>
+May, Bucharest, Rumania: Editura Inforec, pp. 1006-1011.</p>
+<p>Eklund, T. (2000). <i>On the application of self-organizing maps in benchmarking – As
+    applied to the pulp and paper industry.</i> Unpublished Masters Thesis. Department
+of Information Systems, Åbo Akademi University, Turku, Finland.</p>    
+<p>Eklund, T., Back, B., Vanharanta, H., &Visa, A. (2001).<i> Benchmarking international pulp
+    and paper companies using self-organizing maps.</i> TUCS Technical Report No.
+396, Turku Centre for Computer Science, Turku, Finland.</p> 
+    <p>Gustafsson, L. (1992). <i>Bäst i klassen: Benchmarking för högre effektivitet.</i> Uppsala,
+Sweden: Sveriges Verkstadsindustrier.</p>
+<p>Honkela, T., Kaski, S., Lagus, K., & Kohonen, T. (1997). WEBSOM – Self-organizing maps</p> 
+<p style="text-align: right;">pg.no:24</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">  
+    <p>of document collections. <i>Proceedings of WSOM’97: Workshop on Self-Organizing Maps,</i> June, Espoo, Finland: Helsinki Unive</p>    
+    <p>Kangas, J. (1994). <i>On the analysis of pattern sequences by self-organizing maps. </i>Espoo,
+Finland: Helsinki University of Technology</p>    
+<p>Karlöf, B. (1997).<i> Benchmarking i verkligheten: De goda förebildernas inspiration till
+    lärande och affärsutveckling. </i>Borgå: Werner Söderström.</p>
+<p>Karlsson, J. (2001). Financial benchmarking of telecommunications companies. Unpublished Masters Thesis, Department of Information Systems, Åbo Akademi
+University, Turku, Finland.</p>
+<p>Karlsson, J., Back, B., Vanharanta, H. & Visa, A. (2001). <i>Financial benchmarking of
+    telecommunications companies.</i> TUCS Technical Report No. 395, Turku Centre for
+Computer Science, Turku, Finland.</p>
+<p>Kaski, S., Kangas, J., & Kohonen, T. (1998). Bibliography of self-organizing map (SOM)
+    papers: 1981-1997.<i> Neural Computing Surveys,</i> 1, 102-350</p>
+<p>Kaski, S. & Kohonen, T. (1996). Exploratory data analysis by the self-organizing map:
+    Structures of welfare and poverty in the world.<i> Proceedings of the Third International Conference on Neural Networks in the Capital Markets,</i> October,
+Singapore. London, England:World Scientific, 498-507.</p>    
+<p>Keaton, D. (1999), Grade profile. Market pulp: Prospects improving with increased
+demand, less new capacity. Pulp and Paper International August. Available
+online at: <http://www.paperloop.com/db_area/archive/p_p_mag/1999/9908/
+grade.htm><</p>    
+<p>Kiang, M. & Kumar, A. (2001). An evaluation of self-organizing map networks as a robust
+    alternative to factor analysis in data- mining applications.<i> Information </i>Systems
+Research, 12 (2), 177-194.</p>    
+<p>Klimasauskas, C. C. (1991). Applying neural networks, Part IV: Improving performance.
+PC/AI Magazine, 5 (4), 34-41.</p>    
+ <p>Kohonen, T. (1997).<i> Self-organizing maps. </i>2nd ed. Heidelberg: Springer-Verlag.Kohonen, T., Hynninen, J., Kangas, J., & Laaksonen, J. (1996). The self-organizing map</p>    
+<p>program package. Espoo, Finland: University of Technology.</p>
+<p>Lagus, K. (2000). Text mining with the WEBSOM. Acta Polytechnica Scandinavica,
+Mathematics and Computing Series No. 110, Espoo, Finland: Helsinki University
+of Technology.</p>    
+<p>Lehtinen, J. (1996). Financial ratios in an international comparison. Vaasa: Universitas
+Wasaensis.</p>
+<p>Martín-del-Brío, B. & Serrano-Cinca, C. (1993). Self-organizing neural networks for the
+analysis and representation of data: Some financial cases.<i> Neural Computing and
+    Applications, No.</i> 1, 193-206.</p>    
+<p>Matussek, H., Janssens, I., Kenny, J., & Riannon, J. (1999). The Top 150: A tale of two
+    halves.<i> Pulp and Paper International, </i>September, 27-39.</p>    
+<p>Neural Networks Research Centre (February, 2001), Bibliography of SOM Papers.
+Available online at: < http://www.cis.hut.fi/research/refs/ >.</p>    
+    <p>Nobes, C. & Parker, R. (1991).<i> Comparative international accounting. Cambridge, </i>UK:
+Prentice Hall International.</p>    
+<p>Öström, K. (1999).<i> Addressing benchmarking complexity with data mining and neural
+    networks. </i>Unpublished Masters Thesis, Department of Information Systems, Åbo
+Akademi University, Turku, Finland</p>
+  <p style="text-align: right;">pg.no:25</p>
+    </div></div>
+    <div class="section">
+<div class="content-container">  
+<p>Raivio, O., Riihijärvi, J., & Mähönen, P. (2000). Classifying and clustering the Internet
+traffic by Kohonen network. Proceedings of the ICSC Symposia on Neural
+Computation (NC’2000), May, Berlin, Germany. Reading, UK: ICSC Academic
+Press.</p>    
+<p>Rhiannon, J., Jewitt, C., Galasso, L., Fortemps, G. (2001). Consolidation changes the
+    shape of the Top 150. <i>Pulp and Paper International, </i>September, 43 (9), 31-41.</p>    
+<p>Salonen, H. & Vanharanta, H. (1990a). Financial analysis world pulp and paper companies, 1985-1989, Nordic Countries. Green Gold Financial Reports, 1, Espoo,
+Finland: Ekono Oy.</p>   
+ <p>Salonen, H. & Vanharanta, H. (1990b). Financial analysis world pulp and paper companies, 1985-1989, North America. <i>Green Gold Financial Reports,</i> 2, Espoo, Finland:
+Ekono Oy.</p>    
+<p>Salonen, H. & Vanharanta H. (1991). Financial analysis world pulp and paper companies,
+    1985-1989, Europe.<i> Green Gold Financial Reports,</i> 3, Espoo, Finland: Ekono Oy.</p>    
+<p>Sarle, W. S. (2001), Neural network FAQ, monthly posting to the Usenet newsgroup
+comp.ai.neural-nets. Available online at:ftp://ftp.sas.com/pub/neural/FAQ.html.</p>
+<p>Ultsch, A. (1993). Self- organized feature maps for monitoring and knowledge of a
+chemical process.<i> In Proceedings of the International Conference on Artificial
+    Neural Networks, </i>864-867, London: Springer-Verlag.</p>    
+<p>Visa, A., Toivonen, J., Back, B., & Vanharanta, H. (2000). A New methodology for
+    knowledge retrieval from text documents.<i> Proceedings of TOOLMET2000 Symposium – Tool Environments and Development Methods for Intelligent Systems,</i>
+Oulu, Finland: University of Oulu, 147-151.</p>
+<center>
+    <h2><b>APPENDIX:<br>THE FEATURE PLANES OF THE FINAL MAP</b></h2>
+    </center>    
+<p>Lighter shades indicate high values, and darker shades indicate low values</p>    
+<img src="img%2016%20ch%2014.PNG"style="width:100%;
+    height:50%;
+    display: table-footer-group;
+    margin: auto;">
+<p style="text-align: right;">pg.no:26</p>
+    </div></div>
+    <div class="section">
+<div class="content-container"> 
+<img src="img%2017%20ch%2014.PNG"style="width:105%;
+    height:59%;
+    display: table-footer-group;
+    margin: auto;">   
